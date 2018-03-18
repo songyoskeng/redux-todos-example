@@ -1,11 +1,20 @@
 import { initialState as Todos} from '../config';
-let nextTodoId = Todos.list[0]? Todos.list[0].id: 0
+import {last} from 'lodash'
+
+let nextTodoId = Todos.list[0]? last(Todos.list).id+1: 0
+
+
 export const addTodo = text => ({
     type: 'ADD_TODO',
     id: nextTodoId++,
     completed:false,
     text
 }) 
+
+export const deleteTodo = id => ({
+    type: 'DELETE_TODO',
+    id
+})
 
 export const toggleTodo = id => ({
     type: 'TOGGLE_TODO',

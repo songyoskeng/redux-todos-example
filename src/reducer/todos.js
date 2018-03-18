@@ -9,6 +9,11 @@ let reducer = (state = initialState, action) => {
         return _state
         break
 
+        case 'DELETE_TODO':
+        _state.list = _state.list.map(t => t.id != action.id)
+        return _state 
+        break
+ 
         case 'TOGGLE_TODO' :
         _state.list = _state.list.map(t => t.id == action.id? {...t, completed: !t.completed}:t )
 
