@@ -1,4 +1,5 @@
 import {initialState} from '../config'
+import { deleteTodo } from '../actions';
 
 let reducer = (state = initialState, action) => {
 
@@ -9,8 +10,8 @@ let reducer = (state = initialState, action) => {
         return _state
         break
 
-        case 'DELETE_TODO':
-        _state.list = _state.list.map(t => t.id != action.id)
+        case `${deleteTodo}`:
+        _state.list = _state.list.filter(t => t.id != action.payload.id)
         return _state 
         break
  

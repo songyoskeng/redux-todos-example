@@ -1,11 +1,18 @@
-import { VisibilityFilters } from '../actions';
-let visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
+import { VisibilityFilters, setVisibilityFilter } from '../actions';
+import { handleActions } from 'redux-actions';
+// let visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
 
-    switch(action.type){
-      case 'SET_VISIBILITY_FILTER' : 
-      return action.filter
+//     switch(action.type){
+//       case 'SET_VISIBILITY_FILTER' : 
+//       return action.filter
+//     }
+//     return state;
+// }
+
+const visibilityFilter = handleActions({
+    [setVisibilityFilter](state,{payload:action}){
+        return action.filter
     }
-    return state;
-}
+}, VisibilityFilters.SHOW_ALL)
 
 export default visibilityFilter
