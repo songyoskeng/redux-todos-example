@@ -17,7 +17,7 @@ class AddTodo extends Component {
             <div>
                 <form onSubmit={this.submitTodo}>
                     <input ref = {node => this.input = node}/>
-                    <button type="submit">add</button>
+                    <button type="submit" style={{marginLeft:5}}>add</button>
                 </form>
             </div>
         )

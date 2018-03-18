@@ -5,16 +5,16 @@ let reducer = (state = initialState, action) => {
     let _state = Object.assign({},state);
     switch(action.type){
         case 'ADD_TODO' : 
-        _state.todos = [...state.todos, {id:action.id, text: action.text, completed: false}]
+        _state.list = [...state.list, {id:action.id, text: action.text, completed: action.completed}]
         return _state
         break
 
         case 'TOGGLE_TODO' :
-        _state.todos = _state.todos.map(t => t.id == action.id? {...t, completed: !t.completed}:t )
+        _state.list = _state.list.map(t => t.id == action.id? {...t, completed: !t.completed}:t )
 
         return _state
-
         break
+
     }
     return state;
 }
